@@ -1,6 +1,6 @@
-#Urls de las diferentes hojas:
+#Urls de las diferentes hojas del documento:
 
-###Generales:
+###Información general del documento:
 
 [https://spreadsheets.google.com/feeds/worksheets/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/private/full](https://spreadsheets.google.com/feeds/worksheets/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/private/full)
 
