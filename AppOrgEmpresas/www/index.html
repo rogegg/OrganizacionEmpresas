@@ -27,30 +27,66 @@
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2" /> -->
         <meta name=”viewport” content=”user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=high-dpi” />
         
-        <link rel="stylesheet" type="text/css" href="js/jQueryMobile/jquery.mobile-1.4.5.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="js/jQueryMobile/jquery.mobile-1.4.5.css" /> -->
         <script src="js/jquery-1.11.2.min.js"></script>
         <script src="js/jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
+        <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" /> -->
+        <!-- <link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.0/theme-classic/theme-classic.css" /> -->
+        <link rel="stylesheet" href="js/jQueryMobile/jquery.mobile-1.4.0.min.css" />
+        <link rel="stylesheet" href="js/jQueryMobile/theme-classic.css" />
+        
         
         <title>Aplicación Organización Empresas</title>
     </head>
     <body>
-        <div data-role="page" id="inicio">
+        
+        <!--
+            Página home, princial de la aplicación
+        -->
+        <div data-role="page" id="home" data-theme="c">
             <div data-role="header" data-theme="b">
-                <h1> Inicio </h1>
+                <a href="#info" data-role="button" data-icon="info" 
+                   data-iconpos="notext" class="ui-btn-right">Info</a>
+                <h1>Organización Empresas</h1>
             </div>
-            <a href="#pag2" data-role="button"> Ir a pantalla 2</a>
-            <a href="#pag3" data-role="button"> Ir a pantalla 3</a>
+
+            <div class="center">
+                <img src="img/prueba.png" alt="logo" height="200" width="200"> 
+            </div>
+            
+            <a href="#conceptos" data-role="button"> Conceptos</a>
+            <a href="#pag3" data-role="button"> Autoevaluación</a>
+            <a href="#pag4" data-role="button"> Pentágono</a>
         </div>
-        
-        
-        <div data-role="page" id="pag2">
-            <p> Pantalla 2 </p>
+                
+        <!--
+            Página de conceptos.
+        -->
+        <div data-role="page" id="conceptos" data-theme="c">
+            <div data-role="header" data-theme="d">
+                <h1> Organización Empresas </h1>
+                <a href="#" data-rel="back" data-icon="info" data-role="button">
+                    Info</a>
+                <a href="#home" data-icon="home" data-role="button">
+                    Home</a>
+            </div>
             <a href="#" data-rel="back" data-role="button" > Regresar </a>
         </div>
+       
         
-        <div data-roge="page" id="pag3">
-            <p> Pantalla 3 <p>
-            <a href="#" data-rel="back" data-role="button" > Regresar </a>
+        <!-- 
+            Página de información 
+        -->
+        <div data-role="page" id="info" data-theme="c">
+            <div data-role="header" data-theme="d">
+                <h1> Organización Empresas </h1>
+            </div>
+            <p> 
+                información de la aplicación información de la aplicación
+                información de la aplicación información de la aplicación 
+            </p> 
         </div>
+        
+        
     </body>
 </html>
