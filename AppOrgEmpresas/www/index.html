@@ -26,12 +26,15 @@
         <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2" /> -->
         <meta name=”viewport” content=”user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=high-dpi” />
-        
         <!-- <link rel="stylesheet" type="text/css" href="js/jQueryMobile/jquery.mobile-1.4.5.css" /> -->
+        
+        <!-- Ficheros JavaScript -->
         <script src="js/jquery-1.11.2.min.js"></script>
         <script src="js/jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
-        <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" /> -->
-        <!-- <link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.0/theme-classic/theme-classic.css" /> -->
+        <script src="js/modules.js"></script>
+       
+        
+        <!-- Ficheros Css -->
         <link rel="stylesheet" href="js/jQueryMobile/jquery.mobile-1.4.0.min.css" />
         <link rel="stylesheet" href="js/jQueryMobile/theme-classic.css" />
         
@@ -39,20 +42,17 @@
         <title>Aplicación Organización Empresas</title>
     </head>
     <body>
-        
+          
         <!--
             Página home, princial de la aplicación
         -->
         <div data-role="page" id="home" data-theme="c">
-            <div data-role="header" data-theme="b">
-                <a href="#info" data-role="button" data-icon="info" 
-                   data-iconpos="notext" class="ui-btn-right">Info</a>
-                <h1>Organización Empresas</h1>
-            </div>
-
+            <script>headerHome();</script>
+            
             <div class="center">
-                <img src="img/prueba.png" alt="logo" height="200" width="200"> 
+                </br><img src="img/prueba.png" alt="logo" height="200" width="200"> 
             </div>
+            
             
             <a href="#conceptos" data-role="button"> Conceptos</a>
             <a href="#pag3" data-role="button"> Autoevaluación</a>
@@ -63,24 +63,30 @@
             Página de conceptos.
         -->
         <div data-role="page" id="conceptos" data-theme="c">
-            <div data-role="header" data-theme="d">
-                <h1> Organización Empresas </h1>
-                <a href="#" data-rel="back" data-icon="info" data-role="button">
-                    Info</a>
-                <a href="#home" data-icon="home" data-role="button">
-                    Home</a>
-            </div>
-            <a href="#" data-rel="back" data-role="button" > Regresar </a>
+            <script>header();</script>
+            <a href="#" data-role="button">Mecanismo de coordinación</a>
+            <a href="#" data-role="button">Parte de la organización</a>
+            <a href="#" data-role="button">Variable de diseño de puestos</a>
+            <a href="#" data-role="button">Variable de diseño de estructura</a>
+            <a href="#" data-role="button">Variable de diseño de vínculos
+                laterales</a>
+            <a href="#" data-role="button">Variable de diseño de sistema
+                decisor</a>
+            <a href="#" data-role="button">Factor contingente</a>
+            <a href="#" data-role="button">Configuración estructural</a>
         </div>
        
+        
+        
+        
+        
+        
         
         <!-- 
             Página de información 
         -->
         <div data-role="page" id="info" data-theme="c">
-            <div data-role="header" data-theme="d">
-                <h1> Organización Empresas </h1>
-            </div>
+            <script>header();</script>
             <p> 
                 información de la aplicación información de la aplicación
                 información de la aplicación información de la aplicación 
