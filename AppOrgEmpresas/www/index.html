@@ -27,38 +27,56 @@
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2" /> -->
         <meta name=”viewport” content=”user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=high-dpi” />
         <!-- <link rel="stylesheet" type="text/css" href="js/jQueryMobile/jquery.mobile-1.4.5.css" /> -->
-        
+
         <!-- Ficheros JavaScript -->
         <script src="js/jquery-1.11.2.min.js"></script>
         <script src="js/jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/modules.js"></script>
-       
-        
+        <script src="js/functions.js"></script>
+
+
         <!-- Ficheros Css -->
         <link rel="stylesheet" href="js/jQueryMobile/jquery.mobile-1.4.0.min.css" />
         <link rel="stylesheet" href="js/jQueryMobile/theme-classic.css" />
-        
-        
+
         <title>Aplicación Organización Empresas</title>
+        <script src="https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/ovfi9s6/public/values?alt=json-in-script&callback=leerAsignaturas" type="text/javascript"></script>
+
     </head>
     <body>
-          
+
+
         <!--
-            Página home, princial de la aplicación
+            Página home, princial de la aplicación.
+            Se selecciona la asignatura.
         -->
         <div data-role="page" id="home" data-theme="c">
             <script>headerHome();</script>
-            
+
             <div class="center">
-                </br><img src="img/prueba.png" alt="logo" height="200" width="200"> 
+                </br><img src="img/prueba.png" alt="logo" height="200" width="200">
             </div>
-            
-            
-            <a href="#conceptos" data-role="button"> Conceptos</a>
+
+            <a href="#menu" data-role="button">
+                <script type="text/javascript">document.writeln(asignaturas[0]);</script>
+            </a>
+        </div>
+
+
+
+        <!--
+            Página menu.
+        -->
+        <div data-role="page" id="menu" data-theme="c">
+            <script>header();</script>
+
+            <a href="#conceptos" data-role="button">
+                <script type="text/javascript">document.writeln(asignaturas[0]);</script>
+            </a>
             <a href="#pag3" data-role="button"> Autoevaluación</a>
             <a href="#pag4" data-role="button"> Pentágono</a>
         </div>
-                
+
         <!--
             Página de conceptos.
         -->
@@ -75,24 +93,24 @@
             <a href="#" data-role="button">Factor contingente</a>
             <a href="#" data-role="button">Configuración estructural</a>
         </div>
-       
-        
-        
-        
-        
-        
-        
-        <!-- 
-            Página de información 
+
+
+
+
+
+
+
+        <!--
+            Página de información
         -->
         <div data-role="page" id="info" data-theme="c">
             <script>header();</script>
-            <p> 
+            <p>
                 información de la aplicación información de la aplicación
-                información de la aplicación información de la aplicación 
-            </p> 
+                información de la aplicación información de la aplicación
+            </p>
         </div>
-        
-        
+
+
     </body>
 </html>
