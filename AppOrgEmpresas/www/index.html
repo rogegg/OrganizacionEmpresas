@@ -33,6 +33,7 @@
         <script src="js/jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/modules.js"></script>
         <script src="js/functions.js"></script>
+        <script src="js/handlebars/handlebars-v3.0.0.js"></script>
 
 
         <!-- Ficheros Css -->
@@ -41,6 +42,13 @@
 
         <title>Aplicación Organización Empresas</title>
         <script src="https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/ovfi9s6/public/values?alt=json-in-script&callback=leerAsignaturas" type="text/javascript"></script>
+
+        <script id="mi-plantilla" type="text/x-handlebars-template">
+          <p>¡Hola {{{nombre}}}!</p>
+          <p>¡Hola {{{this.[0].nombre}}}!</p>
+        </script>
+
+
 
     </head>
     <body>
@@ -55,6 +63,21 @@
 
             <div class="center">
                 </br><img src="img/prueba.png" alt="logo" height="200" width="200">
+
+                <!-- prueba de handlebars -->
+
+                <div id="contenedor"></div>
+                <script>
+                    var origen = $('#mi-plantilla').html();
+                    var plantilla = Handlebars.compile(origen);
+                    var persona = {nombre:'Roge', edad: '20'};
+
+                    $('#contenedor').html( plantilla(persona) );
+                </script>
+
+                <!-- fin prueba -->
+
+
             </div>
 
             <a href="#menu" data-role="button">
