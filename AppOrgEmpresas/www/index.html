@@ -43,17 +43,14 @@
         <title>Aplicación Organización Empresas</title>
         <script src="https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/ovfi9s6/public/values?alt=json-in-script&callback=leerAsignaturas" type="text/javascript"></script>
 
-        <script id="mi-plantilla" type="text/x-handlebars-template">
-          <p>¡Hola {{{nombre}}}!</p>
-          <p>¡Hola {{{this.[0].nombre}}}!</p>
-        </script>
 
+        <script id="plantilla-asignaturas" type="text/x-handlebars-template">
+              <a href="#menu" data-role="button">{{{asignatura}}}</a>
+        </script>
 
 
     </head>
     <body>
-
-
         <!--
             Página home, princial de la aplicación.
             Se selecciona la asignatura.
@@ -65,22 +62,18 @@
                 </br><img src="img/prueba.png" alt="logo" height="200" width="200">
 
                 <!-- prueba de handlebars -->
-
-                <div id="contenedor"></div>
+               <div id="contenedor"></div>
                 <script>
-                    var origen = $('#mi-plantilla').html();
+                    var origen = $('#plantilla-asignaturas').html();
                     var plantilla = Handlebars.compile(origen);
-                    var persona = {nombre:'Roge', edad: '20'};
+                    var datos = {asignatura: asignatura[0]};
 
-                    $('#contenedor').html( plantilla(persona) );
+                    $('#contenedor').html( plantilla(datos) );
                 </script>
                 <!-- fin prueba -->
-
-
             </div>
-
-            <a href="#menu" data-role="button">
-                <script type="text/javascript">document.writeln(asignaturas[0]);</script>
+            <a href="#menu" id="menu" data-role="button">
+                <script type="text/javascript">document.writeln(asignatura[0]);</script>
             </a>
         </div>
 
@@ -90,11 +83,17 @@
             Página menu.
         -->
         <div data-role="page" id="menu" data-theme="c">
-            <script>header();</script>
+            <script>header();
+            var datos = {asignatura: asignatura[0]};
+
+            $('#contenedor').html( plantilla(datos) );
+            </script>
+
 
             <a href="#conceptos" data-role="button">
                 <script type="text/javascript">document.writeln(asignaturas[0]);</script>
             </a>
+
             <a href="#pag3" data-role="button"> Autoevaluación</a>
             <a href="#pag4" data-role="button"> Pentágono</a>
         </div>
