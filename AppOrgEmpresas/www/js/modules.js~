@@ -1,0 +1,18 @@
+
+function headerHome{
+    document.writeln("+
+    	'<div data-role="header" data-theme="b">'+
+                '<a href="#info" data-role="button" data-icon="info"'+ 
+                   'data-iconpos="notext" class="ui-btn-right">Info</a>'+
+                '<h1>Organización Empresas</h1>'+
+         '</div>'+
+    );
+}
+
+
+function header(){
+	document.writeln("Hola mundo");
+}
+
+
+
