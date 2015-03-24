@@ -10,9 +10,9 @@ function leerAsignaturas(json) {
     asig[i] = json.feed.entry[i].gsx$asignatura.$t;
     context.asignatura[i] = {nombre: asig[i]};
   }
-
-
 }
+
+
 
 
 

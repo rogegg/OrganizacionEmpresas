@@ -79,7 +79,6 @@
         </script>
 
 
-
         <!-- Plantilla para el HOME de la página. -->
         <script id="plantilla-home" type="text/x-handlebars-template">
           <p>Selecciona tu asignatura</p>
@@ -102,7 +101,7 @@
             <script>$('#contenedor-headerHome').html(htmlHeader);</script>
 
             <div class="center">
-                </br><img src="img/prueba.png" alt="logo" height="200" width="200">
+            </br><img src="img/logo.png" alt="logo" height="200" width="200">
             </div>
 
             <div id="contenedor-home"></div>
@@ -114,27 +113,12 @@
             </script>
         </div>
 
-
-
         <!--
             Página menú, selección del tipo de actividad.
         -->
         <div data-role="page" id="menu" data-theme="c">
             <div id="contenedor-header"></div>
             <script>$('#contenedor-header').html(htmlH);</script>
-            <script>
-            var datos = {asignatura: asignatura[0]};
-
-            $('#contenedor').html( plantilla(datos) );
-            </script>
-
-
-            <a href="#conceptos" data-role="button">
-                <script type="text/javascript">document.writeln(asignaturas[0]);</script>
-            </a>
-
-            <a href="#pag3" data-role="button"> Autoevaluación</a>
-            <a href="#pag4" data-role="button"> Pentágono</a>
         </div>
 
         <!--
