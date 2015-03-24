@@ -55,13 +55,34 @@
           </div>
         </script>
 
+        <script>
+          var src   = $("#plantilla-headerHome").html();
+          var t = Handlebars.compile(src);
+          var htmlHeader = t(context);
+        </script>
+
+
+        <script id="plantilla-header" type= "text/x-handlebars-template">
+            <div data-role="header" data-theme="b">
+                    <a href="#" data-rel="back" data-role="button" data-icon="arrow-l"
+                       data-iconpos="notext" class="ui-btn-left">Info</a>
+                    <a href="#home" data-role="button" data-icon="home"
+                       data-iconpos="notext" class="ui-btn-right">Info</a>
+                    <h1>{{{name}}}</h1>
+            </div>
+        </script>
+
+        <script>
+          var srcHeader   = $("#plantilla-header").html();
+          var tHeader = Handlebars.compile(srcHeader);
+          var htmlH = tHeader(context);
+        </script>
+
 
 
         <!-- Plantilla para el HOME de la página. -->
         <script id="plantilla-home" type="text/x-handlebars-template">
-          <p>
-            Nombre: {{{name}}}
-          </p>
+          <p>Selecciona tu asignatura</p>
           {{#each asignatura}}
             <a href="#menu" data-role="button">{{{nombre}}}</a>
           {{~/each}}
@@ -78,12 +99,7 @@
         -->
         <div data-role="page" id="home" data-theme="c">
             <div id="contenedor-headerHome"></div>
-            <script>
-              var source   = $("#plantilla-headerHome").html();
-              var template = Handlebars.compile(source);
-              var html     = template(context);
-              $('#contenedor-headerHome').html(html);
-            </script>
+            <script>$('#contenedor-headerHome').html(htmlHeader);</script>
 
             <div class="center">
                 </br><img src="img/prueba.png" alt="logo" height="200" width="200">
@@ -96,7 +112,6 @@
               var html     = template(context);
               $('#contenedor-home').html(html);
             </script>
-
         </div>
 
 
@@ -105,7 +120,9 @@
             Página menú, selección del tipo de actividad.
         -->
         <div data-role="page" id="menu" data-theme="c">
-            <script>header();
+            <div id="contenedor-header"></div>
+            <script>$('#contenedor-header').html(htmlH);</script>
+            <script>
             var datos = {asignatura: asignatura[0]};
 
             $('#contenedor').html( plantilla(datos) );
