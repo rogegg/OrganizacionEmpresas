@@ -90,10 +90,10 @@
 
         <!-- Plantilla para el menú. -->
         <script id="plantilla-menu" type="text/x-handlebars-template">
-          <p>Selecciona tu asignatura</p>
+          <p>Selecciona tu actividad</p>
           <!-- revisar href de los botones -->
           {{#each menu}}
-            <a href="" data-role="button">{{{nombre_menu}}}</a>
+            <a href="" data-role="button">{{{nombreMenu}}}</a>
           {{~/each}}
         </script>
 
@@ -128,6 +128,8 @@
             Página menú, selección del tipo de actividad.
         -->
         <div data-role="page" id="menu" data-theme="c">
+        <script src="https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/osnfhix/public/values?alt=json-in-script&callback=leerMenu" type="text/javascript"></script>
+
             <div id="contenedor-header"></div>
             <script>$('#contenedor-header').html(htmlH);</script>
 
