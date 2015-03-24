@@ -33,6 +33,7 @@
         <script src="js/jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/modules.js"></script>
         <script src="js/functions.js"></script>
+        <script src="js/templates.js"></script>
         <script src="js/handlebars/handlebars-v3.0.0.js"></script>
 
 
@@ -44,9 +45,29 @@
         <script src="https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/ovfi9s6/public/values?alt=json-in-script&callback=leerAsignaturas" type="text/javascript"></script>
 
 
-        <script id="plantilla-asignaturas" type="text/x-handlebars-template">
-              <a href="#menu" data-role="button">{{{asignatura}}}</a>
+
+        <!-- Plantilla para la cabecera del home -->
+        <script id="plantilla-headerHome" type="text/x-handlebars-template">
+          <div data-role="header" data-theme="b">
+              <a href="#info" data-role="button" data-icon="info"
+                 data-iconpos="notext" class="ui-btn-right">Info</a>
+              <h1>{{{name}}}</h1>
+          </div>
         </script>
+
+
+
+        <!-- Plantilla para el HOME de la página. -->
+        <script id="plantilla-home" type="text/x-handlebars-template">
+          <p>
+            Nombre: {{{name}}}
+          </p>
+          {{#each asignatura}}
+            <a href="#menu" data-role="button">{{{nombre}}}</a>
+          {{~/each}}
+        </script>
+
+
 
 
     </head>
@@ -56,31 +77,32 @@
             Se selecciona la asignatura.
         -->
         <div data-role="page" id="home" data-theme="c">
-            <script>headerHome();</script>
+            <div id="contenedor-headerHome"></div>
+            <script>
+              var source   = $("#plantilla-headerHome").html();
+              var template = Handlebars.compile(source);
+              var html     = template(context);
+              $('#contenedor-headerHome').html(html);
+            </script>
 
             <div class="center">
                 </br><img src="img/prueba.png" alt="logo" height="200" width="200">
-
-                <!-- prueba de handlebars -->
-               <div id="contenedor"></div>
-                <script>
-                    var origen = $('#plantilla-asignaturas').html();
-                    var plantilla = Handlebars.compile(origen);
-                    var datos = {asignatura: asignatura[0]};
-
-                    $('#contenedor').html( plantilla(datos) );
-                </script>
-                <!-- fin prueba -->
             </div>
-            <a href="#menu" id="menu" data-role="button">
-                <script type="text/javascript">document.writeln(asignatura[0]);</script>
-            </a>
+
+            <div id="contenedor-home"></div>
+            <script>
+              var source   = $("#plantilla-home").html();
+              var template = Handlebars.compile(source);
+              var html     = template(context);
+              $('#contenedor-home').html(html);
+            </script>
+
         </div>
 
 
 
         <!--
-            Página menu.
+            Página menú, selección del tipo de actividad.
         -->
         <div data-role="page" id="menu" data-theme="c">
             <script>header();
