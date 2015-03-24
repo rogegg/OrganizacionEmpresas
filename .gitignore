@@ -5,7 +5,7 @@
 *~
 
 
-# netbeans
+# Netbeans
 AppOrgEmpresas/nbproject/private/
 AppOrgEmpresas/build/
 AppOrgEmpresas/nbbuild/
@@ -13,3 +13,13 @@ AppOrgEmpresas/dist/
 AppOrgEmpresas/nbdist/
 AppOrgEmpresas/nbactions.xml
 AppOrgEmpresas/nb-configuration.xml
+
+
+# cordova Mobile
+AppOrgEmpresas/config.xml
+AppOrgEmpresas/hooks/
+AppOrgEmpresas/nbproject/
+AppOrgEmpresas/platforms/
+AppOrgEmpresas/plugins/
+
+
