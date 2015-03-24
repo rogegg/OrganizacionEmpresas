@@ -61,7 +61,7 @@
           var htmlHeader = t(context);
         </script>
 
-
+        <!-- Plantilla para la cabecera general-->
         <script id="plantilla-header" type= "text/x-handlebars-template">
             <div data-role="header" data-theme="b">
                     <a href="#" data-rel="back" data-role="button" data-icon="arrow-l"
@@ -88,9 +88,20 @@
         </script>
 
 
+        <!-- Plantilla para el menú. -->
+        <script id="plantilla-menu" type="text/x-handlebars-template">
+          <p>Selecciona tu asignatura</p>
+          <!-- revisar href de los botones -->
+          {{#each menu}}
+            <a href="" data-role="button">{{{nombre_menu}}}</a>
+          {{~/each}}
+        </script>
+
 
 
     </head>
+
+
     <body>
         <!--
             Página home, princial de la aplicación.
@@ -119,6 +130,8 @@
         <div data-role="page" id="menu" data-theme="c">
             <div id="contenedor-header"></div>
             <script>$('#contenedor-header').html(htmlH);</script>
+
+
         </div>
 
         <!--

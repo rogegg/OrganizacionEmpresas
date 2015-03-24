@@ -1,9 +1,13 @@
-asig = new Array();
+
 total = 0;
 var context = new Object();
 context.name = "Organización Empresas"
+var context_menu = new Object();
+
+
 
 function leerAsignaturas(json) {
+  asig = new Array();
   context.asignatura = new Array();
   total = json.feed.entry.length;
   for(i=0; i<total; i++){
@@ -13,6 +17,13 @@ function leerAsignaturas(json) {
 }
 
 
+function leerMenu(json) {
+  menu = new Array();
+  total = json.feed.entry.length;
+  for(i=0; i<total; i++){
+    menu[i] = json.feed.entry[i].gsx$menu.$t;
+  }
+}
 
 
 
