@@ -71,7 +71,6 @@
                     <h1>{{{name}}}</h1>
             </div>
         </script>
-
         <script>
           var srcHeader   = $("#plantilla-header").html();
           var tHeader = Handlebars.compile(srcHeader);
@@ -81,7 +80,7 @@
 
         <!-- Plantilla para el HOME de la página. -->
         <script id="plantilla-home" type="text/x-handlebars-template">
-          <p>Selecciona tu asignatura</p>
+
           {{#each asignatura}}
             <a href="#menu" data-role="button">{{{nombre}}}</a>
           {{~/each}}
@@ -90,13 +89,30 @@
 
         <!-- Plantilla para el menú. -->
         <script id="plantilla-menu" type="text/x-handlebars-template">
-          <p>Selecciona tu actividad</p>
           <!-- revisar href de los botones -->
           {{#each menu}}
-            <a href="" data-role="button">{{{nombreMenu}}}</a>
+              <a href="#{{{nombre_menu}}}" data-role="button" onClick="funcion_menu()">
+                {{{nombre_menu}}}
+              </a>
           {{~/each}}
         </script>
 
+
+        <!-- Plantilla para CONCEPTOS. -->
+        <script id="plantilla-conceptos" type="text/x-handlebars-template">
+          {{#each variable}}
+            <div data-role="collapsible" data-collapsed="true">
+              <h4>{{nombre_variable}}</h4>
+              <ul data-role="listview">
+                  <li><a href="#">List item 1</a></li>
+                  <li><a href="#">List item 2</a></li>
+                  <li><a href="#">List item 3</a></li>
+              </ul>
+            </div>
+          {{~/each}}
+        </script>
+
+        <!-- Plantilla para CONCEPTOS > Subvariable. -->
 
 
     </head>
@@ -124,23 +140,45 @@
             </script>
         </div>
 
+
         <!--
             Página menú, selección del tipo de actividad.
         -->
         <div data-role="page" id="menu" data-theme="c">
-        <script src="https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/osnfhix/public/values?alt=json-in-script&callback=leerMenu" type="text/javascript"></script>
+          <script src="https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/osnfhix/public/values?alt=json-in-script&callback=leerMenu" type="text/javascript"></script>
 
-            <div id="contenedor-header"></div>
-            <script>$('#contenedor-header').html(htmlH);</script>
+          <div id="contenedor-header"></div>
+          <script>$('#contenedor-header').html(htmlH);</script>
 
+          <div id="contenedor-menu"></div>
+          <script>
+            var source   = $("#plantilla-menu").html();
+            var template = Handlebars.compile(source);
+            var html     = template(context_menu);
+            $('#contenedor-menu').html(html);
+          </script>
 
         </div>
 
         <!--
-            Página de conceptos.
+            Página de CONCEPTOS.
         -->
-        <div data-role="page" id="conceptos" data-theme="c">
-            <script>header();</script>
+        <div data-role="page" id="Conceptos" data-theme="c">
+          <script src="https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/od6/public/values?alt=json-in-script&callback=leerConceptos" type="text/javascript"></script>
+
+          <div id="contenedor-header-conceptos"></div>
+          <script>$('#contenedor-header-conceptos').html(htmlH);</script>
+
+          <div id="contenedor-conceptos"></div>
+
+          <script>
+            var source   = $("#plantilla-conceptos").html();
+            var template = Handlebars.compile(source);
+            var html     = template(context_conceptos);
+            $('#contenedor-conceptos').html(html);
+          </script>
+
+            <!--
             <a href="#" data-role="button">Mecanismo de coordinación</a>
             <a href="#" data-role="button">Parte de la organización</a>
             <a href="#" data-role="button">Variable de diseño de puestos</a>
@@ -151,6 +189,19 @@
                 decisor</a>
             <a href="#" data-role="button">Factor contingente</a>
             <a href="#" data-role="button">Configuración estructural</a>
+            -->
+
+        </div>
+
+
+        <!--
+            Página de AUTOEVALUACION.
+        -->
+        <div data-role="page" id="Autoevaluación" data-theme="c">
+          <div id="contenedor-header-autoevaluacion"></div>
+          <script>$('#contenedor-header-autoevaluacion').html(htmlH);</script>
+
+
         </div>
 
 
