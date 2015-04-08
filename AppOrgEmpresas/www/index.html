@@ -98,21 +98,41 @@
 
 
         <!-- Plantilla para CONCEPTOS. -->
+        <!--
         <script id="plantilla-conceptos" type="text/x-handlebars-template">
           {{#each variable}}
             <div data-role="collapsible" data-collapsed="true">
               <h4>{{nombre_variable}}</h4>
               <ul data-role="listview">
                   {{#each subvariables}}
-                    <li><a href="#">{{nombre_subvariable}}</a></li>
+                      <li><a href="#">{{nombre_subvariable}}</a></li>
                   {{~/each}}
-                  <li><a href="#">List item 2</a></li>
               </ul>
             </div>
           {{~/each}}
         </script>
+        -->
 
-        <!-- Plantilla para CONCEPTOS > Subvariable. -->
+
+
+        <!-- Plantilla para CONCEPTOS v2. -->
+        <script id="plantilla-conceptos" type="text/x-handlebars-template">
+          {{#each variable}}
+          <div data-role="collapsible" data-collapsed="true">
+            <h4>{{nombre_variable}}</h4>
+              {{#each subvariables}}
+                <div data-role="collapsible" data-collapsed="false">
+                  <h4>{{nombre_subvariable}}</h4>
+                  <ul data-role="listview">
+                      {{#each concepto}}
+                          <li><a href="#">{{nombre_concepto}}</a></li>
+                      {{~/each}}
+                  </ul>
+                </div>
+              {{~/each}}
+          </div>
+          {{~/each}}
+        </script>
 
 
     </head>

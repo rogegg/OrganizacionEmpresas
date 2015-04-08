@@ -34,16 +34,12 @@ function leerMenu(json) {
 
 function leerConceptos(json) {
   context_conceptos.variable = new Array();
-  context_conceptos.subvariable = new Array();
-  context_conceptos.concepto = new Array();
-  context_conceptos.definicion = new Array();
-  context_conceptos.ejemplo = new Array();
 
   total = json.feed.entry.length;
 
   variable = new Array();
   subvariable = new Array();
-  concepto = new Array();
+  vConcepto = new Array();
   subvariable = new Array();
 
   variable_tmp = "";
@@ -58,38 +54,58 @@ function leerConceptos(json) {
       context_conceptos.variable[j] = {
               nombre_variable: json.feed.entry[i].gsx$variable.$t,
               subvariables: []
-              //Meter subvariables en la estructura
       };
 
-      k=i;
-      for(; json.feed.entry[i].gsx$subvariable.$t == json.feed.entry[2].gsx$subvariable.$t; k++){
-        context_conceptos.variable[j].subvariables.push(
-          {nombre_subvariable: json.feed.entry[i].gsx$subvariable.$t}
-        )
+      /*************************SUBVARIABLES!!!!!******************************/
+
+      subvariable_tmp = "";
+      for(k=i ; k<total && json.feed.entry[i].gsx$variable.$t == json.feed.entry[k].gsx$variable.$t; k++){
+        //console.log(json.feed.entry[k].gsx$subvariable.$t);
+        //console.log("i = "+json.feed.entry[i].gsx$variable.$t+ "; k = "+json.feed.entry[k].gsx$variable.$t);
+
+        //Si la subvariable no es vacía...
+        if(json.feed.entry[k].gsx$subvariable.$t != ""){
+          //Si la subvariable no es igual a la anterior...
+          if(subvariable_tmp != json.feed.entry[k].gsx$subvariable.$t){
+            //Añadimos las subvariables
+            context_conceptos.variable[j].subvariables.push(
+              {nombre_subvariable: json.feed.entry[k].gsx$subvariable.$t})
+            subvariable_tmp = json.feed.entry[k].gsx$subvariable.$t;
+
+
+            /*************************** CONCEPTOS ********************************/
+            /*!!!!Revisar!!!! no se añaden conceptos sin subvariable
+
+
+            */
+            for(l=k ; l<total && json.feed.entry[k].gsx$subvariable.$t == json.feed.entry[l].gsx$subvariable.$t ; l++){
+              //console.log("k = "+json.feed.entry[k].gsx$subvariable.$t+ "; l = "+json.feed.entry[l].gsx$subvariable.$t);
+              //console.log(k +" -> "+json.feed.entry[l].gsx$concepto.$t);
+              vConcepto.push({nombre_concepto: json.feed.entry[l].gsx$concepto.$t})
+
+            }
+            //console.log(vConcepto);
+            context_conceptos.variable[j].subvariables.push(
+              {concepto: vConcepto});
+            vConcepto=[];
+
+            /************************** FIN CONCEPTOS *****************************/
+
+
+
+          }
+
+
+
+
+
+        }
+
+
       }
+      //console.log(context_conceptos.variable[j]);
+      /***********************FIN_SUBVARIABLES*********************************/
 
-
-      /****************************SUBVARIABLES!!!!!**********************************/
-      //Añadimos las subvariables
-
-      //Mientras variable[i] coincida con variable[k] -> guardamos subvariables
-      l=0;
-      for(k=i; json.feed.entry[i].gsx$variable.$t == json.feed.entry[k].gsx$subvariable.$t && k<total; k++){
-        //if(subvariable_tmp != ""){
-          subvariable[l] = json.feed.entry[k].gsx$subvariable.$t; //<----- no coge valores!
-
-          context_conceptos.variable[j].subvariable[0] = { nombre_subvariable: subvariable[l] };
-          l++;
-        //}
-      }
-
-
-
-
-
-      console.log(context_conceptos.variable[j]);
-      //console.log(context_conceptos.subvariable[j]);
-      /***********************************************************/
       j++;
     }
 
@@ -104,10 +120,7 @@ function leerConceptos(json) {
   //console.log(variable);
   //context_conceptos.variable[0].subvariable[0] = {nombre: "pepe"};
   //console.log(context_conceptos.variable[0]);
-  //console.log(context_conceptos.variable);
-  console.log(json.feed.entry[12].gsx$subvariable.$t);
-
-
+  console.log(context_conceptos.variable);
 
 }
 
