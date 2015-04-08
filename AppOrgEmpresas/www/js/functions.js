@@ -34,7 +34,7 @@ function leerMenu(json) {
 
 function leerConceptos(json) {
   context_conceptos.variable = new Array();
-  //context_conceptos.subvariable = new Array();
+  context_conceptos.subvariable = new Array();
   context_conceptos.concepto = new Array();
   context_conceptos.definicion = new Array();
   context_conceptos.ejemplo = new Array();
@@ -53,16 +53,24 @@ function leerConceptos(json) {
     //No incluimos variables repetidas en el vector variable.
     if(variable_tmp != json.feed.entry[i].gsx$variable.$t){
       variable_tmp = json.feed.entry[i].gsx$variable.$t;
+
       //Estructura de cada variable
       context_conceptos.variable[j] = {
               nombre_variable: json.feed.entry[i].gsx$variable.$t,
+              subvariables: []
               //Meter subvariables en la estructura
       };
+
+      k=i;
+      for(; json.feed.entry[i].gsx$subvariable.$t == json.feed.entry[2].gsx$subvariable.$t; k++){
+        context_conceptos.variable[j].subvariables.push(
+          {nombre_subvariable: json.feed.entry[i].gsx$subvariable.$t}
+        )
+      }
 
 
       /****************************SUBVARIABLES!!!!!**********************************/
       //Añadimos las subvariables
-      context_conceptos.variable[j].subvariable = new Array();
 
       //Mientras variable[i] coincida con variable[k] -> guardamos subvariables
       l=0;
@@ -70,11 +78,17 @@ function leerConceptos(json) {
         //if(subvariable_tmp != ""){
           subvariable[l] = json.feed.entry[k].gsx$subvariable.$t; //<----- no coge valores!
 
-          context_conceptos.variable[j].subvariable[l] = { nombre_subvariable: subvariable[l] };
+          context_conceptos.variable[j].subvariable[0] = { nombre_subvariable: subvariable[l] };
           l++;
         //}
       }
-      //console.log(context_conceptos.variable[j].subvariable);
+
+
+
+
+
+      console.log(context_conceptos.variable[j]);
+      //console.log(context_conceptos.subvariable[j]);
       /***********************************************************/
       j++;
     }
@@ -83,23 +97,6 @@ function leerConceptos(json) {
 
 
 
-    /*
-    //Añadimos la subvariable a las variables.
-    for(k=i; k<total ;k++){
-      if(subvariable_tmp != json.feed.entry[i].gsx$subvariable.$t)
-    }*/
-
-
-    /*
-    //Si existen subvariables...
-    if(json.feed.entry[i].gsx$subvariable.$t != ""){
-      subv = json.feed.entry[i].gsx$subvariable.$t;
-      //...vemos las subvariables que tiene una variable.
-      for(j=i ,k=0; subv == json.feed.entry[j].gsx$subvariable.$t ;j++,k++){ // incluir >> && j<total << en la condición;
-        //variable[i].subvariable[k] = json.feed.entry[j].gsx$subvariable.$t;
-        subvariable[k] = json.feed.entry[j].gsx$subvariable.$t;
-      }
-    }*/
 
 
   }
