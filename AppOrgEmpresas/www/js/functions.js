@@ -6,7 +6,6 @@ var context_menu = new Object();
 var context_conceptos = new Object();
 
 
-
 function leerAsignaturas(json) {
   asig = new Array();
   cod = new Array();
@@ -31,7 +30,6 @@ function leerMenu(json) {
 }
 
 
-
 function leerConceptos(json) {
   context_conceptos.variable = new Array();
 
@@ -44,83 +42,77 @@ function leerConceptos(json) {
 
   variable_tmp = "";
   for(i=0, j=0;i<total;i++){
-
-    context_conceptos.variable[j]
     //No incluimos variables repetidas en el vector variable.
     if(variable_tmp != json.feed.entry[i].gsx$variable.$t){
       variable_tmp = json.feed.entry[i].gsx$variable.$t;
 
+/*      //Estructura estática de ejemplo
+      context_conceptos.variable[j] = {
+        nombre_variable: json.feed.entry[i].gsx$variable.$t,
+        subvariables:[]
+         [
+          {nombre_subvariable:"subvariable",
+           conceptos:[
+              {nombre_concepto:"concepto"},
+              {nombre_concepto:"concepto2"},
+              {nombre_concepto:"concepto3"}
+           ]
+          },
+          {nombre_subvariable:"subvariable2",
+           conceptos:[
+              {nombre_concepto:"concepto"},
+              {nombre_concepto:"concepto2"},
+              {nombre_concepto:"concepto3"}
+           ]
+          }
+
+        ]
+      };
+*/
+
       //Estructura de cada variable
       context_conceptos.variable[j] = {
-              nombre_variable: json.feed.entry[i].gsx$variable.$t,
-              subvariables: []
+        nombre_variable: json.feed.entry[i].gsx$variable.$t,
+        subvariables:[]
       };
 
-      /*************************SUBVARIABLES!!!!!******************************/
-
+      /************************* SUBVARIABLES ******************************/
       subvariable_tmp = "";
       for(k=i ; k<total && json.feed.entry[i].gsx$variable.$t == json.feed.entry[k].gsx$variable.$t; k++){
-        //console.log(json.feed.entry[k].gsx$subvariable.$t);
-        //console.log("i = "+json.feed.entry[i].gsx$variable.$t+ "; k = "+json.feed.entry[k].gsx$variable.$t);
-
         //Si la subvariable no es vacía...
         if(json.feed.entry[k].gsx$subvariable.$t != ""){
           //Si la subvariable no es igual a la anterior...
           if(subvariable_tmp != json.feed.entry[k].gsx$subvariable.$t){
-            //Añadimos las subvariables
-            context_conceptos.variable[j].subvariables.push(
-              {nombre_subvariable: json.feed.entry[k].gsx$subvariable.$t})
-            subvariable_tmp = json.feed.entry[k].gsx$subvariable.$t;
-
 
             /*************************** CONCEPTOS ********************************/
-            /*!!!!Revisar!!!! no se añaden conceptos sin subvariable
-
-
-            */
             for(l=k ; l<total && json.feed.entry[k].gsx$subvariable.$t == json.feed.entry[l].gsx$subvariable.$t ; l++){
-              //console.log("k = "+json.feed.entry[k].gsx$subvariable.$t+ "; l = "+json.feed.entry[l].gsx$subvariable.$t);
-              //console.log(k +" -> "+json.feed.entry[l].gsx$concepto.$t);
-              vConcepto.push({nombre_concepto: json.feed.entry[l].gsx$concepto.$t})
-
+              vConcepto.push({nombre_concepto: json.feed.entry[l].gsx$concepto.$t,
+                              definicion: String(json.feed.entry[l].gsx$definicion.$t),
+                              ejemplo: String(json.feed.entry[l].gsx$ejemplo.$t)
+              })
             }
-            //console.log(vConcepto);
+
+            //Añadimos las subvariables y conceptos a las variables.
             context_conceptos.variable[j].subvariables.push(
-              {concepto: vConcepto});
+              {nombre_subvariable: json.feed.entry[k].gsx$subvariable.$t,
+                conceptos: vConcepto
+              }
+            );
+            subvariable_tmp = json.feed.entry[k].gsx$subvariable.$t;
+
             vConcepto=[];
-
             /************************** FIN CONCEPTOS *****************************/
-
-
-
           }
-
-
-
-
-
         }
-
-
       }
-      //console.log(context_conceptos.variable[j]);
       /***********************FIN_SUBVARIABLES*********************************/
-
       j++;
     }
-
-
-
-
-
-
-
   }
 
-  //console.log(variable);
-  //context_conceptos.variable[0].subvariable[0] = {nombre: "pepe"};
-  //console.log(context_conceptos.variable[0]);
-  console.log(context_conceptos.variable);
+
+  console.log(context_conceptos.variable[3].subvariables[0]);
+  console.log(context_conceptos.variable[3]);
 
 }
 

@@ -97,42 +97,80 @@
         </script>
 
 
-        <!-- Plantilla para CONCEPTOS. -->
-        <!--
-        <script id="plantilla-conceptos" type="text/x-handlebars-template">
-          {{#each variable}}
-            <div data-role="collapsible" data-collapsed="true">
-              <h4>{{nombre_variable}}</h4>
-              <ul data-role="listview">
-                  {{#each subvariables}}
-                      <li><a href="#">{{nombre_subvariable}}</a></li>
-                  {{~/each}}
-              </ul>
-            </div>
-          {{~/each}}
-        </script>
-        -->
-
-
-
         <!-- Plantilla para CONCEPTOS v2. -->
         <script id="plantilla-conceptos" type="text/x-handlebars-template">
-          {{#each variable}}
-          <div data-role="collapsible" data-collapsed="true">
-            <h4>{{nombre_variable}}</h4>
-              {{#each subvariables}}
-                <div data-role="collapsible" data-collapsed="false">
-                  <h4>{{nombre_subvariable}}</h4>
-                  <ul data-role="listview">
-                      {{#each concepto}}
-                          <li><a href="#">{{nombre_concepto}}</a></li>
-                      {{~/each}}
-                  </ul>
+          <div data-role="collapsible-set">
+            {{#each variable}}
+            <div data-role="collapsible" data-collapsed="true">
+              <h3>{{nombre_variable}}</h3>
+                <div data-role="collapsible-set">
+                  {{#each subvariables}}
+                    <div data-role="collapsible" data-collapsed="true" data-theme="e">
+                      <h4>{{nombre_subvariable}}</h4>
+                          {{#each conceptos}}
+                              <div data-role="collapsible">
+                                <h4>{{nombre_concepto}}</h4>
+                                <div data-role="collapsible" data-collapsed="false" data-theme="b">
+                                  <h4>Definición</h4>
+                                  <p>{{definicion}}</p>
+                                </div>
+                                <div data-role="collapsible" data-theme="b">
+                                  <h4>Ejemplo</h4>
+                                  <p>{{ejemplo}}</p>
+                                </div>
+                              </div>
+                          {{~/each}}
+
+                    </div>
+                  {{~/each}}
                 </div>
-              {{~/each}}
+            </div>
+            {{~/each}}
           </div>
-          {{~/each}}
         </script>
+
+
+        <!-- Plantilla para CONCEPTOS v3.
+        <script id="plantilla-conceptos" type="text/x-handlebars-template">
+          <div data-role="collapsible-set">
+            {{#each variable}}
+            <div data-role="collapsible" data-collapsed="true">
+              <h3>{{nombre_variable}}</h3>
+                <div data-role="collapsible-set">
+                  {{#each subvariables}}
+                    <div data-role="collapsible" data-collapsed="true" data-theme="e">
+                      <h4>{{nombre_subvariable}}</h4>
+                          {{#each conceptos}}
+                              <a href="#popupConceptos" data-rel="popup"
+                                class="ui-btn ui-corner-all ui-shadow ui-btn-inline"
+                                data-transition="slide">
+                                  {{nombre_concepto}}
+                              </a>
+                              <div data-role="popup" id="popupConceptos">
+                                  <div data-role="collapsible" data-collapsed="false" data-theme="b">
+                                    <h4>Definición</h4>
+                                    <p>{{definicion}}</p>
+                                  </div>
+                                  <div data-role="collapsible" data-theme="b">
+                                    <h4>Ejemplo</h4>
+                                    <p>{{ejemplo}}</p>
+                                  </div>
+                              </div>
+                          {{~/each}}
+
+                    </div>
+                  {{~/each}}
+                </div>
+            </div>
+            {{~/each}}
+          </div>
+        </script>
+      <!-- -->
+
+
+
+
+
 
 
     </head>
@@ -197,20 +235,6 @@
             var html     = template(context_conceptos);
             $('#contenedor-conceptos').html(html);
           </script>
-
-            <!--
-            <a href="#" data-role="button">Mecanismo de coordinación</a>
-            <a href="#" data-role="button">Parte de la organización</a>
-            <a href="#" data-role="button">Variable de diseño de puestos</a>
-            <a href="#" data-role="button">Variable de diseño de estructura</a>
-            <a href="#" data-role="button">Variable de diseño de vínculos
-                laterales</a>
-            <a href="#" data-role="button">Variable de diseño de sistema
-                decisor</a>
-            <a href="#" data-role="button">Factor contingente</a>
-            <a href="#" data-role="button">Configuración estructural</a>
-            -->
-
         </div>
 
 
