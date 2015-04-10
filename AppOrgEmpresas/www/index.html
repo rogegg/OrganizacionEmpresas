@@ -105,7 +105,8 @@
               <h3>{{nombre_variable}}</h3>
                 <div data-role="collapsible-set">
                   {{#each subvariables}}
-                    <div data-role="collapsible" data-collapsed="true" data-theme="e">
+                    <div data-icon="arrow-d" data-role="collapsible" data-collapsed="true"
+                        data-theme="e">
                       <h4>{{nombre_subvariable}}</h4>
                           {{#each conceptos}}
                               <div data-role="collapsible">
@@ -130,7 +131,7 @@
         </script>
 
 
-        <!-- Plantilla para CONCEPTOS v3.
+        <!-- Plantilla para CONCEPTOS v3. > Con popup <
         <script id="plantilla-conceptos" type="text/x-handlebars-template">
           <div data-role="collapsible-set">
             {{#each variable}}
@@ -167,14 +168,7 @@
         </script>
       <!-- -->
 
-
-
-
-
-
-
     </head>
-
 
     <body>
         <!--
@@ -198,7 +192,6 @@
             </script>
         </div>
 
-
         <!--
             Página menú, selección del tipo de actividad.
         -->
@@ -215,7 +208,6 @@
             var html     = template(context_menu);
             $('#contenedor-menu').html(html);
           </script>
-
         </div>
 
         <!--
@@ -228,7 +220,6 @@
           <script>$('#contenedor-header-conceptos').html(htmlH);</script>
 
           <div id="contenedor-conceptos"></div>
-
           <script>
             var source   = $("#plantilla-conceptos").html();
             var template = Handlebars.compile(source);
@@ -237,21 +228,13 @@
           </script>
         </div>
 
-
         <!--
             Página de AUTOEVALUACION.
         -->
         <div data-role="page" id="Autoevaluación" data-theme="c">
           <div id="contenedor-header-autoevaluacion"></div>
           <script>$('#contenedor-header-autoevaluacion').html(htmlH);</script>
-
-
         </div>
-
-
-
-
-
 
 
         <!--
