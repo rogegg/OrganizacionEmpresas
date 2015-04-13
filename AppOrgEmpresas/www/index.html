@@ -26,7 +26,7 @@
         <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2" /> -->
         <meta name=”viewport” content=”user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=high-dpi” />
-        
+
 
         <!-- Ficheros JavaScript -->
         <script src="js/jquery-1.11.2.min.js"></script>
@@ -95,7 +95,7 @@
         </script>
 
 
-        <!-- Plantilla para CONCEPTOS v2. -->
+        <!-- Plantilla para CONCEPTOS v2. -->  
         <script id="plantilla-conceptos" type="text/x-handlebars-template">
           <div data-role="collapsible-set">
             {{#each variable}}
@@ -103,7 +103,7 @@
               <h3>{{nombre_variable}}</h3>
                 <div data-role="collapsible-set">
                   {{#each subvariables}}
-                    <div data-icon="arrow-d" data-role="collapsible" data-collapsed="true"
+                    <div data-role="collapsible" data-collapsed="true"
                         data-theme="e">
                       <h4>{{nombre_subvariable}}</h4>
                           {{#each conceptos}}
