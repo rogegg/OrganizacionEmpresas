@@ -716,7 +716,7 @@ var __module1__ = (function(__dependency1__, __dependency2__, __dependency3__, _
       root.Handlebars = $Handlebars;
     }
   };
-
+ 
   Handlebars['default'] = Handlebars;
 
   __exports__ = Handlebars;
