@@ -1,7 +1,7 @@
 
 total = 0;
 var context = new Object();
-context.name = "Org. Empresas"
+context.name = "Organización Empresas"
 
 
 var context_menu = new Object();
