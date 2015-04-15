@@ -1,5 +1,5 @@
 #Urls de las diferentes hojas del documento:
-Para acceder al contenido del documento, necesitamos una url por cada página. Las ids de las páginas no son explícitas ni intuitivas, así que tenemos que consultarlas desde el código fuente de la [página general del documento](https://spreadsheets.google.com/feeds/worksheets/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/private/full).
+Para acceder al contenido del documento, necesitamos una url por cada página. Las ids de las páginas no son explícitas ni intuitivas, así que tenemos que consultarlas desde el código fuente de la [página general del documento](https://docs.google.com/spreadsheets/d/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE).
 
 
 ###Información general del documento:
