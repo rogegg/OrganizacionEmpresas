@@ -78,8 +78,9 @@
 
         <!-- Plantilla para el HOME de la página. -->
         <script id="plantilla-home" type="text/x-handlebars-template">
+
           {{#each asignatura}}
-            <a href="#menu" data-role="button">{{{nombre}}}</a>
+            <a href="#menu" data-role="button" onclick="{{{codigo}}}()">{{{nombre}}}</a>
           {{~/each}}
         </script>
 
@@ -96,6 +97,7 @@
 
 
         <!-- Plantilla para CONCEPTOS v3. (Popups añadidos)-->
+
         <script id="plantilla-conceptos" type="text/x-handlebars-template">
           <div data-role="collapsible-set">
             {{#each variable}}
@@ -107,7 +109,8 @@
                         data-theme="e">
                       <h4>{{nombre_subvariable}}</h4>
                           {{#each conceptos}}
-                          <a href="#{{id}}" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">{{nombre_concepto}}</a>
+
+                          <a href="#{{id}}" data-rel="popup" class="{{{asig}}} ui-btn ui-btn-inline ui-corner-all">{{nombre_concepto}}</a>
                           <div data-role="popup" id="{{id}}">
                             <div data-role="main" class="ui-content">
                               <input type="button" value="Definición" data-theme="b">
