@@ -78,8 +78,9 @@
 
         <!-- Plantilla para el HOME de la página. -->
         <script id="plantilla-home" type="text/x-handlebars-template">
+
           {{#each asignatura}}
-            <a href="#menu" data-role="button">{{{nombre}}}</a>
+            <a href="#menu" data-role="button" onclick="{{{codigo}}}()">{{{nombre}}}</a>
           {{~/each}}
         </script>
 
@@ -95,7 +96,7 @@
         </script>
 
 
-        <!-- Plantilla para CONCEPTOS v2. -->  
+        <!-- Plantilla para CONCEPTOS v2. -->
         <script id="plantilla-conceptos" type="text/x-handlebars-template">
           <div data-role="collapsible-set">
             {{#each variable}}
@@ -107,7 +108,7 @@
                         data-theme="e">
                       <h4>{{nombre_subvariable}}</h4>
                           {{#each conceptos}}
-                              <div data-role="collapsible">
+                              <div data-role="collapsible" class="{{{asig}}}">
                                 <h4>{{nombre_concepto}}</h4>
                                 <div data-role="collapsible" data-collapsed="false" data-theme="b">
                                   <h4>Definición</h4>

@@ -7,6 +7,17 @@ context.name = "Organización Empresas"
 var context_menu = new Object();
 var context_conceptos = new Object();
 
+function OE()
+{
+    $('.OE').show();
+    $('.OT').hide();
+}
+
+function OT()
+{
+    $('.OT').show();
+    $('.OE').hide();
+}
 
 function leerAsignaturas(json) {
   asig = new Array();
@@ -40,81 +51,83 @@ function leerConceptos(json) {
   variable = new Array();
   subvariable = new Array();
   vConcepto = new Array();
-  subvariable = new Array();
 
+  
   variable_tmp = "";
   for(i=0, j=0;i<total;i++){
     //No incluimos variables repetidas en el vector variable.
-    if(variable_tmp != json.feed.entry[i].gsx$variable.$t){
-      variable_tmp = json.feed.entry[i].gsx$variable.$t;
 
-/*      //Estructura estática de ejemplo
-      context_conceptos.variable[j] = {
-        nombre_variable: json.feed.entry[i].gsx$variable.$t,
-        subvariables:[]
-         [
-          {nombre_subvariable:"subvariable",
-           conceptos:[
-              {nombre_concepto:"concepto"},
-              {nombre_concepto:"concepto2"},
-              {nombre_concepto:"concepto3"}
-           ]
-          },
-          {nombre_subvariable:"subvariable2",
-           conceptos:[
-              {nombre_concepto:"concepto"},
-              {nombre_concepto:"concepto2"},
-              {nombre_concepto:"concepto3"}
-           ]
-          }
+        if(variable_tmp != json.feed.entry[i].gsx$variable.$t){
+          variable_tmp = json.feed.entry[i].gsx$variable.$t;
 
-        ]
-      };
-*/
-
-      //Estructura de cada variable
-      context_conceptos.variable[j] = {
-        nombre_variable: json.feed.entry[i].gsx$variable.$t,
-        subvariables:[]
-      };
-
-      /************************* SUBVARIABLES ******************************/
-      subvariable_tmp = "";
-      for(k=i ; k<total && json.feed.entry[i].gsx$variable.$t == json.feed.entry[k].gsx$variable.$t; k++){
-        //Si la subvariable no es vacía...
-        if(json.feed.entry[k].gsx$subvariable.$t != ""){
-          //Si la subvariable no es igual a la anterior...
-          if(subvariable_tmp != json.feed.entry[k].gsx$subvariable.$t){
-
-            /*************************** CONCEPTOS ********************************/
-            for(l=k ; l<total && json.feed.entry[k].gsx$subvariable.$t == json.feed.entry[l].gsx$subvariable.$t ; l++){
-              vConcepto.push({nombre_concepto: json.feed.entry[l].gsx$concepto.$t,
-                              definicion: String(json.feed.entry[l].gsx$definicion.$t),
-                              ejemplo: String(json.feed.entry[l].gsx$ejemplo.$t)
-              })
-            }
-
-            //Añadimos las subvariables y conceptos a las variables.
-            context_conceptos.variable[j].subvariables.push(
-              {nombre_subvariable: json.feed.entry[k].gsx$subvariable.$t,
-                conceptos: vConcepto
+    /*      //Estructura estática de ejemplo
+          context_conceptos.variable[j] = {
+            nombre_variable: json.feed.entry[i].gsx$variable.$t,
+            subvariables:[]
+             [
+              {nombre_subvariable:"subvariable",
+               conceptos:[
+                  {nombre_concepto:"concepto"},
+                  {nombre_concepto:"concepto2"},
+                  {nombre_concepto:"concepto3"}
+               ]
+              },
+              {nombre_subvariable:"subvariable2",
+               conceptos:[
+                  {nombre_concepto:"concepto"},
+                  {nombre_concepto:"concepto2"},
+                  {nombre_concepto:"concepto3"}
+               ]
               }
-            );
-            subvariable_tmp = json.feed.entry[k].gsx$subvariable.$t;
 
-            vConcepto=[];
-            /************************** FIN CONCEPTOS *****************************/
+            ]
+          };
+    */
+
+          //Estructura de cada variable
+          context_conceptos.variable[j] = {
+            nombre_variable: json.feed.entry[i].gsx$variable.$t,
+            subvariables:[]
+          };
+
+          /************************* SUBVARIABLES ******************************/
+          subvariable_tmp = "";
+          for(k=i ; k<total && json.feed.entry[i].gsx$variable.$t == json.feed.entry[k].gsx$variable.$t; k++){
+            //Si la subvariable no es vacía...
+            if(json.feed.entry[k].gsx$subvariable.$t != ""){
+              //Si la subvariable no es igual a la anterior...
+              if(subvariable_tmp != json.feed.entry[k].gsx$subvariable.$t){
+
+                /*************************** CONCEPTOS ********************************/
+                for(l=k ; l<total && json.feed.entry[k].gsx$subvariable.$t == json.feed.entry[l].gsx$subvariable.$t ; l++){
+                  vConcepto.push({asig: json.feed.entry[l].gsx$asignatura.$t,
+                      nombre_concepto: json.feed.entry[l].gsx$concepto.$t,
+                                  definicion: String(json.feed.entry[l].gsx$definicion.$t),
+                                  ejemplo: String(json.feed.entry[l].gsx$ejemplo.$t)
+                  })
+                }
+
+                //Añadimos las subvariables y conceptos a las variables.
+                context_conceptos.variable[j].subvariables.push(
+                  {nombre_subvariable: json.feed.entry[k].gsx$subvariable.$t,
+                    conceptos: vConcepto
+                  }
+                );
+                subvariable_tmp = json.feed.entry[k].gsx$subvariable.$t;
+
+                vConcepto=[];
+                /************************** FIN CONCEPTOS *****************************/
+              }
+            }
           }
+          /***********************FIN_SUBVARIABLES*********************************/
+          j++;
         }
-      }
-      /***********************FIN_SUBVARIABLES*********************************/
-      j++;
-    }
   }
 
 
-  console.log(context_conceptos.variable[3].subvariables[0]);
-  console.log(context_conceptos.variable[3]);
+  //console.log(context_conceptos.variable[3].subvariables[0]);
+  //console.log(context_conceptos.variable[3]);
 
 }
 
