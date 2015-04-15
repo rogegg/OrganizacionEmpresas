@@ -88,7 +88,8 @@ function leerConceptos(json) {
 
             /*************************** CONCEPTOS ********************************/
             for(l=k ; l<total && json.feed.entry[k].gsx$subvariable.$t == json.feed.entry[l].gsx$subvariable.$t ; l++){
-              vConcepto.push({nombre_concepto: json.feed.entry[l].gsx$concepto.$t,
+              vConcepto.push({id:l,
+                              nombre_concepto: json.feed.entry[l].gsx$concepto.$t,
                               definicion: String(json.feed.entry[l].gsx$definicion.$t),
                               ejemplo: String(json.feed.entry[l].gsx$ejemplo.$t)
               })
