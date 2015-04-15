@@ -22,6 +22,7 @@
   ],
   "dependencies": {
     "jquery": "~2.1.3",
-    "jquery-mobile": "~1.4.5"
+    "jquery-mobile": "~1.4.5",
+    "handlebars": "~3.0.0"
   }
 }
