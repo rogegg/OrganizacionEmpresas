@@ -29,7 +29,7 @@
 
 
         <!-- Ficheros JavaScript -->
-        <script src="js/jquery-1.11.2.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="js/jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/handlebars/handlebars-v3.0.0.js"></script>
         <script src="js/functions.js"></script>
@@ -96,7 +96,8 @@
         </script>
 
 
-        <!-- Plantilla para CONCEPTOS v2. -->
+        <!-- Plantilla para CONCEPTOS v3. (Popups añadidos)-->
+
         <script id="plantilla-conceptos" type="text/x-handlebars-template">
           <div data-role="collapsible-set">
             {{#each variable}}
@@ -108,19 +109,17 @@
                         data-theme="e">
                       <h4>{{nombre_subvariable}}</h4>
                           {{#each conceptos}}
-                              <div data-role="collapsible" class="{{{asig}}}">
-                                <h4>{{nombre_concepto}}</h4>
-                                <div data-role="collapsible" data-collapsed="false" data-theme="b">
-                                  <h4>Definición</h4>
-                                  <p>{{definicion}}</p>
-                                </div>
-                                <div data-role="collapsible" data-theme="b">
-                                  <h4>Ejemplo</h4>
-                                  <p>{{ejemplo}}</p>
-                                </div>
-                              </div>
-                          {{~/each}}
 
+                          <a href="#{{id}}" data-rel="popup" class="{{{asig}}} ui-btn ui-btn-inline ui-corner-all">{{nombre_concepto}}</a>
+                          <div data-role="popup" id="{{id}}">
+                            <div data-role="main" class="ui-content">
+                              <input type="button" value="Definición" data-theme="b">
+                              <p align="center">{{definicion}}</p>
+                              <input type="button" value="Ejemplo" data-theme="b">
+                              <p align="center">{{ejemplo}}</p>
+                            </div>
+                          </div>
+                          {{~/each}}
                     </div>
                   {{~/each}}
                 </div>
@@ -128,44 +127,7 @@
             {{~/each}}
           </div>
         </script>
-
-
-        <!-- Plantilla para CONCEPTOS v3. > Con popup <
-        <script id="plantilla-conceptos" type="text/x-handlebars-template">
-          <div data-role="collapsible-set">
-            {{#each variable}}
-            <div data-role="collapsible" data-collapsed="true">
-              <h3>{{nombre_variable}}</h3>
-                <div data-role="collapsible-set">
-                  {{#each subvariables}}
-                    <div data-role="collapsible" data-collapsed="true" data-theme="e">
-                      <h4>{{nombre_subvariable}}</h4>
-                          {{#each conceptos}}
-                              <a href="#popupConceptos" data-rel="popup"
-                                class="ui-btn ui-corner-all ui-shadow ui-btn-inline"
-                                data-transition="slide">
-                                  {{nombre_concepto}}
-                              </a>
-                              <div data-role="popup" id="popupConceptos">
-                                  <div data-role="collapsible" data-collapsed="false" data-theme="b">
-                                    <h4>Definición</h4>
-                                    <p>{{definicion}}</p>
-                                  </div>
-                                  <div data-role="collapsible" data-theme="b">
-                                    <h4>Ejemplo</h4>
-                                    <p>{{ejemplo}}</p>
-                                  </div>
-                              </div>
-                          {{~/each}}
-
-                    </div>
-                  {{~/each}}
-                </div>
-            </div>
-            {{~/each}}
-          </div>
-        </script>
-      <!-- -->
+        <!-- -->
 
     </head>
 
@@ -240,7 +202,6 @@
             Página de información
         -->
         <div data-role="page" id="info" data-theme="c">
-            <script>header();</script>
             <p>
                 información de la aplicación información de la aplicación
                 información de la aplicación información de la aplicación
