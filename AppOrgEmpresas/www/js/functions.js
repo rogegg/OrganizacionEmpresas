@@ -1,5 +1,5 @@
 
-total = 0;
+var total = 0;
 var context = new Object();
 context.name = "Organización Empresas"
 
