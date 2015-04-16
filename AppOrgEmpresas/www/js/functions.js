@@ -1,5 +1,6 @@
 
 var total = 0;
+var filtro_asignatura="S";
 var context = new Object();
 context.name = "Organización Empresas"
 
@@ -7,17 +8,36 @@ context.name = "Organización Empresas"
 var context_menu = new Object();
 var context_conceptos = new Object();
 
-function OE()
-{
+//Muestra sólo los ejercicios y conceptos de la asignatura (Organización de Empresas)
+function showOe(){
+    //console.log("         Dentro de showOe()");
     $('.OE').show();
     $('.OT').hide();
 }
 
-function OT()
-{
+//Muestra sólo los ejercicios y conceptos de la asignatura (Organización del trabajo)
+function showOt(){
+    //console.log("         Dentro de showOt()");
     $('.OT').show();
     $('.OE').hide();
 }
+
+
+//Aplicamos filtro por asignatura
+function filtroAsignatura(codigo_asignatura){
+    //console.log("La asignatura seleccionada es: " + codigo_asignatura);
+  if( String(codigo_asignatura) == "OE"){
+    //console.log("IF: showOe();");
+    showOe();
+  }else if( String(codigo_asignatura) == "OT"){
+    //console.log("ELSE IF: showOt();");
+    showOt();
+  }else{
+    //console.log("No hay filtrado");
+  }
+}
+
+
 
 function leerAsignaturas(json) {
   asig = new Array();
@@ -52,8 +72,8 @@ function leerConceptos(json) {
   subvariable = new Array();
   vConcepto = new Array();
 
-
   variable_tmp = "";
+
   for(i=0, j=0;i<total;i++){
     //No incluimos variables repetidas en el vector variable.
 

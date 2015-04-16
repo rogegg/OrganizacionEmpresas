@@ -29,7 +29,7 @@
 
 
         <!-- Ficheros JavaScript -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="js/jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/handlebars/handlebars-v3.0.0.js"></script>
         <script src="js/functions.js"></script>
@@ -80,7 +80,7 @@
         <script id="plantilla-home" type="text/x-handlebars-template">
 
           {{#each asignatura}}
-            <a href="#menu" data-role="button" onclick="{{{codigo}}}()">{{{nombre}}}</a>
+            <a href="#menu" data-role="button" onclick="filtroAsignatura('{{codigo}}')">{{{nombre}}}</a>
           {{~/each}}
         </script>
 
@@ -89,7 +89,7 @@
         <script id="plantilla-menu" type="text/x-handlebars-template">
           <!-- revisar href de los botones -->
           {{#each menu}}
-              <a href="#{{{nombre_menu}}}" data-role="button" onClick="funcion_menu()">
+              <a href="#{{{nombre_menu}}}" data-role="button">
                 {{{nombre_menu}}}
               </a>
           {{~/each}}
