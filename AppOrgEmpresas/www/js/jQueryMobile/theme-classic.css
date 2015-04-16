@@ -1288,6 +1288,48 @@ html head + body .ui-body-e.ui-focus {
 	box-shadow: 0 0 12px 			#387bbe /*{e-active-background-color}*/;
 }
 
+
+
+
+
+/****************************************************************************/
+/****************************************************************************/
+/******************************* My theme ***********************************/
+/****************************************************************************/
+/****************************************************************************/
+
+/* G (My theme)
+-----------------------------------------------------------------------------------------------------------*/
+
+/* Button up */
+.ui-page-theme-g .ui-btn,
+html .ui-bar-g .ui-btn,
+html .ui-body-g .ui-btn,
+html body .ui-group-theme-g .ui-btn,
+html head + body .ui-btn.ui-btn-g,
+/* Button visited */
+.ui-page-theme-g .ui-btn:visited,
+html .ui-bar-g .ui-btn:visited,
+html .ui-body-g .ui-btn:visited,
+html body .ui-group-theme-g .ui-btn:visited,
+html head + body .ui-btn.ui-btn-g:visited {
+	background: 			#fadb4e /*{e-bup-background-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #49A5BF /*{e-bup-background-start}*/), to( #49A5BF /*{e-bup-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #49A5BF /*{e-bup-background-start}*/, #49A5BF /*{e-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #49A5BF /*{e-bup-background-start}*/, #49A5BF /*{e-bup-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #49A5BF /*{e-bup-background-start}*/, #49A5BF /*{e-bup-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #49A5BF /*{e-bup-background-start}*/, #49A5BF /*{e-bup-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #49A5BF /*{e-bup-background-start}*/, #49A5BF /*{e-bup-background-end}*/);
+	border-color:	 		#00000 /*{e-bup-border}*/;
+	color: 					#ffffff /*{e-bup-color}*/;
+	text-shadow: 0 /*{e-bup-shadow-x}*/ 1px /*{e-bup-shadow-y}*/ 0 /*{e-bup-shadow-radius}*/ #000000 /*{e-bup-shadow-color}*/;
+}
+
+/************************** end of my theme **********************************/
+
+
+
+
 /* "classic" theme specific rules
 -----------------------------------------------------------------------------------------------------------*/
 /* Button top highlight. Note: this won't work with buttons inside an ordered list because we use :before for list numbering */
