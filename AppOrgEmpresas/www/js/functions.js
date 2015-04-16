@@ -26,10 +26,10 @@ function showOt(){
 //Aplicamos filtro por asignatura
 function filtroAsignatura(codigo_asignatura){
     //console.log("La asignatura seleccionada es: " + codigo_asignatura);
-  if( String(codigo_asignatura) == "OE"){
+  if( String(codigo_asignatura) === "OE"){
     //console.log("IF: showOe();");
     showOe();
-  }else if( String(codigo_asignatura) == "OT"){
+  }else if( String(codigo_asignatura) === "OT"){
     //console.log("ELSE IF: showOt();");
     showOt();
   }else{
