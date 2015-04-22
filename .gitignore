@@ -25,3 +25,6 @@ AppOrgEmpresas/plugins/
 
 # pruebas
 AppOrgEmpresas/www/prueba
+AppOrgEmpresas/www/js/Beers.json
+AppOrgEmpresas/www/pruebahandlebars.html
+AppOrgEmpresas/www/js/functions_old.js
