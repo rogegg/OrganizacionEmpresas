@@ -25,3 +25,8 @@ Para acceder al contenido del documento, necesitamos una url por cada página. L
 ####- 6. Relaciones:
 [https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/oes0vax/private/full](https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/oes0vax/private/full)
   
+####- 7. Hexagono:
+[https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/oexj1xo/private/full](https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/oexj1xo/private/full)
+
+####- 8. Resultados hexagono:
+[https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/ozh90cs/private/full](https://spreadsheets.google.com/feeds/list/1sFG2bBd0m00Lps7f6cZXUEAT2CbFgCof9W97ATx2VRE/ozh90cs/private/full)
