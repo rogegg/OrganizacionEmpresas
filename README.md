@@ -8,7 +8,7 @@ Consta de 3 apartados:
   - Preguntas Verdadero/Falso
  - Hexágono organización empresas
  
- Nombre de la aplicación: iOrg 
+#Nombre de la aplicación: iOrg 
 
 iOrg es una aplicación móvil docente para las asignaturas Organización de Empresas y Organización del trabajo, dirigida por el departamento Organización de Empresas de la Facultad de Ciencias del Trabajo. 
 
