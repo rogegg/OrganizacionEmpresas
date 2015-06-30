@@ -1,0 +1,6 @@
+[submodule "app-org-empresas"]
+	path = app-org-empresas
+	url = git@github.com:rogegg/app-org-empresas.git
+[submodule "app"]
+	path = app
+	url = git@github.com:rogegg/app-org-empresas.git
