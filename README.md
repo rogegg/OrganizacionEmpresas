@@ -17,4 +17,4 @@ La aplicación está orientada al apoyo de estas asignaturas. El alumno podrá  
 
 Los lenguajes de programación utilizados son HTML, CSS y Javascript. Para la compilación y empaquetamiento se usa Apache Cordova, tenemos así una aplicación móvil híbrida. 
 
-Código fuente en el submódulo ##[app](https://github.com/rogegg/app-org-empresas)
+Código fuente en el submódulo [app](https://github.com/rogegg/app-org-empresas).
